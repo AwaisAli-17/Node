@@ -1,9 +1,9 @@
 const db = require('./dbconfig');
 
-const getUsers = (req,res) =>{
+const getUsers = (email,res) =>{
     const query = {
         text: 'Select * from users where email = $1',
-        values: [req.params.email]
+        values: [email]
     };
     db.query(query,(result,error)=>{
         if(error){

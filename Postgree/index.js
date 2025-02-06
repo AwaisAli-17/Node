@@ -1,3 +1,4 @@
+process.env.SECRET_KEY = "5b1a3923cc1e1e19523fd5c3f20b409509d3ff9d42710a4da095a2ce285b009f0c3730cd9b8e1af3eb84d";
 
 const port = 4000;
 
@@ -18,6 +19,10 @@ const port = 4000;
 /* Express Server */
 const express = require("express");
 const app = express()
+const auth = require('./services/authenticate');
+
+app.post("/login", auth.login);
+
 
 app.get("/", (req, res) => {
   res.send("Hello Express!");
